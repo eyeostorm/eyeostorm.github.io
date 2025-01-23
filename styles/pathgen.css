@@ -1,0 +1,41 @@
+.pathgen-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 100px 0px 0px 230px;
+    padding: 20px 0px 0px 0px;;
+    min-width: calc(100dvh - 230px + 100px + 30px);
+}
+.pathgen-image {
+    /* position:absolute; */
+    /* left: calc(230px); */
+    /* top: calc(100px);  */
+    height: calc(100dvh - 100px - 20px - 20px);
+    width: calc(100dvh - 100px - 20px - 20px);
+    /* heading is 100px and sidebar is 230px*/
+}
+
+.robot-dragger-base {
+    position: absolute;
+    bottom: 42dvh;
+    z-index: 9;
+    height: 32px;
+}
+.first-base {
+    border: 2px solid yellow;
+}
+.robot-dragger {
+    display: flex;
+    justify-content: center;
+    font-size: 1.4em;
+    width: 32px;
+    max-width: 32px;
+    height: 32px;
+    max-height: 32px;
+    background-color: rgba(60, 60, 60, 0.7);
+    padding: 7px;
+    cursor: move;
+    z-index: 10;
+    transform: rotate(0);
+    border: 2px solid yellow;
+}
