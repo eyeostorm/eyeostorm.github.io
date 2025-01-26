@@ -37,7 +37,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 400px;
     overflow-y: hidden;
     gap: 10px;
     width: 100%;
@@ -54,7 +53,6 @@
     border-radius: 30px;
     font-size: 26px;
     text-align: left;
-    max-height: 200px;
     overflow-y: hidden;
     transition: all 0.25s ease-in-out;
 }
@@ -80,7 +78,6 @@
 .constraint-container, .event-container {
     display: none;
     margin: 10px 13px 0 13px;
-    max-height: 136px;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -96,7 +93,6 @@
     border-radius: 30px;
     font-size: 26px;
     text-align: left;
-    max-height: 200px;
     overflow-y: hidden;
     transition: all 0.25s ease-in-out;
 }
@@ -152,7 +148,7 @@
 
 .console {
     width: 100%;
-    height: calc(100vh - 150px - 300px - 63px);
+    height: calc(100vh - 150px - 300px - 60px);
     min-height: 100px;
     text-align: left;
     overflow-y: scroll;
@@ -171,11 +167,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
+    gap: 6px;
+    padding: 0 0 7px 0;
 }
 .quick-action {
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 6px 8px;
     border: solid 1px grey;
     border-radius: 10px;
     transition: all 0.25s ease-in-out;
