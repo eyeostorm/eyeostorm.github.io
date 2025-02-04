@@ -17,3 +17,9 @@ body {
 .simple-hoverable:hover {
     transform: scale(1.125);
 }
+.show{
+    display: inline-block;
+}
+.hide{
+    display: none;
+}

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ARPG</title>
+        <title>Path Gen</title>
         <link rel="shortcut icon" href="images/aggieroboticslogo.png" />
 
         <link rel="stylesheet" href="styles/general.css">
@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="styles/sidebar.css">
         <link rel="stylesheet" href="styles/pathgen.css">
         <link rel="stylesheet" href="styles/debug.css">
+        <link rel="stylesheet" href="styles/sidebar_popup.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +27,8 @@
         <script defer src="js/relativeXYCoordinates.js"></script>
         <script defer src="js/window_resize.js"></script>
         <script defer src="js/output_reckless_code.js"></script>
+        <script defer src="js/popup_menu.js"></script>
+        <script defer src="js/changeMaps.js"></script>
 
         <script defer src="js/debug_functions.js"></script>
     </head>
@@ -39,9 +42,17 @@
                     <div class="header-window" style="display: none;">
                         stuff
                     </div>
-                    <p class="header-settings-dropdown simple-hoverable">
-                        Settings
-                    </p>
+                    <div id="settingsButton">
+                        <p class="header-settings-dropdown simple-hoverable dropdown-button">
+                            Settings
+                        </p>
+                        <div id="settingsDropdownContentContainer" class="dropdown-content dropdown-content-container hide">
+                            <div class="dropdown-content dropdown-list">
+                                <a id="autonMapChangeLink" href="#" class="dropdown-content dropdown-item">Autonomous Map</a>
+                                <a id="skillsMapChangeLink" href="#" class="dropdown-content dropdown-item">Skills Map</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="header-text-container">
                     <p class="header-text" id="website-title">
@@ -55,36 +66,41 @@
             <nav class="sidebar">
                 <div class="sidebar-dropdown-div">
                     <div class="options-container">
-                        <div class="angle-container">
-                            <div class="angle-text-container">
-                                <label for="AngleZeroInput">
-                                    Angle θ<sub>0</sub> =
-                                </label>
-                                <input id="AngleZeroInput" type="text" class="kanit" value="0">
+                        <div class="width88p">
+                            <div class="angle-container">
+                                <div class="angle-text-container">
+                                    <label for="AngleZeroInput">
+                                        Angle θ<sub>0</sub> =
+                                    </label>
+                                    <input id="AngleZeroInput" type="text" class="kanit" value="0">
+                                </div>
                             </div>
                         </div>
-                        <div class="events-container" id="events-container">
-                            <div class="events-text-container">
-                                <p class="events-text">
-                                    Events
-                                </p>
-                                <p class="events-arrow" id="events-arrow">
-                                    ▲
-                                </p>
+                        <div class="width88p">
+                            <div class="events-container" id="events-container">
+                                <div class="events-text-container">
+                                    <p class="events-text">
+                                        Events
+                                    </p>
+                                    <p class="events-arrow" id="events-arrow">
+                                        ▲
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="paths-container" id="paths-container">
-                            <div class="path-text-container">
-                                <p class="paths-text">
-                                    Paths
-                                </p>
-                                <p class="paths-arrow" id="paths-arrow">
-                                    ▲
-                                </p>
+                        <div class="width88p">
+                            <div class="paths-container dropdown-button" id="paths-container">
+                                <div class="paths-text-container">
+                                    <p class="paths-text">
+                                        Paths
+                                    </p>
+                                    <p class="paths-arrow" id="paths-arrow">
+                                        ▲
+                                    </p>
+                                </div>
+                                <div class="constraint-container" id="constraint-container"></div>
                             </div>
-                            <div class="constraint-container" id="constraint-container"></div>
                         </div>
-                        <div class="event-container" id="event-container"></div>
                     </div>
                 </div>
 
@@ -125,7 +141,8 @@
                 </div>
             </nav>
             <section class="pathgen-container" id="pathgen-container">
-                <img class="pathgen-image" id="pathgen-image" src="images/field3.png" alt="">
+                <img class="pathgen-image" id="pathgenMap" src="images/autonomous_map.png" alt="">
+
                 <div class="robot-dragger-base" id="robot-dragger-base">
                     <div class="robot-dragger first-base"></div>
                 </div>

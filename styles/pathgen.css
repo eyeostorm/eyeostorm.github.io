@@ -13,6 +13,7 @@
     height: calc(100dvh - 100px - 20px - 20px);
     width: calc(100dvh - 100px - 20px - 20px);
     /* heading is 100px and sidebar is 230px*/
+    display: inline;
 }
 
 .robot-dragger-base {

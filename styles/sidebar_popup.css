@@ -1,0 +1,35 @@
+.dropdown-button{
+    position: relative;
+}
+
+.dropdown-content-container{
+    position: absolute;
+    z-index: 1;
+    border-radius: 2px;
+    border: solid 4px black;
+    background-color: rgb(50,50,50);
+    /*box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);*/
+}
+.dropdown-item{
+    padding: 10px 5px;
+    color: rgb(182,65,182);
+    transition: all 0.1s ease-in-out;
+    border-color: black;
+    border-style: solid;
+    border-bottom: 1px;
+}
+.dropdown-content:hover{
+    color: rgb(210,100,210)
+}
+.dropdown-list{
+    display: grid;
+    min-width: 120px;
+}
+
+
+
+
+
+
+
+

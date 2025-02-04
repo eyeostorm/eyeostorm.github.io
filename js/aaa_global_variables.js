@@ -15,7 +15,7 @@ let global_absolute_angle = true;
 
 let global_starting_angle = 0
 
-let global_path_gen_image = document.getElementById("pathgen-image")
+let global_path_gen_image = document.getElementById("pathgenMap")
 
 let global_counterclockwise_posNeg = -1
 
