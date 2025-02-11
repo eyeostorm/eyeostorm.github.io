@@ -152,7 +152,7 @@ function waypointAt(x, y){
 
     // creates the visible part of the waypoint object
     waypointStyler.className = "robot-dragger";
-    // waypointStyler.textContent = global_waypoints.length
+    waypointStyler.textContent = global_waypoints.length
 
     waypointBase.appendChild(waypointStyler);
 
