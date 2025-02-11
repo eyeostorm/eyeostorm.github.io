@@ -144,15 +144,15 @@ function waypointAt(x, y){
     let waypointBase = document.createElement("div");
     waypointBase.className = "robot-dragger-base point" + global_waypoints.length;
     waypointBase.className = "robot-dragger-base";
-    waypointBase.style.top = y-25 + "px";
-    waypointBase.style.left = x-25 + "px";
+    waypointBase.style.top = y-global_wayPadding + "px";
+    waypointBase.style.left = x-global_wayPadding + "px";
 
     document.getElementById("pathgen-container").appendChild(waypointBase);
     let waypointStyler = document.createElement("div");
 
     // creates the visible part of the waypoint object
     waypointStyler.className = "robot-dragger";
-    waypointStyler.textContent = global_waypoints.length
+    // waypointStyler.textContent = global_waypoints.length
 
     waypointBase.appendChild(waypointStyler);
 

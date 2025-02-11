@@ -41,24 +41,17 @@ function reckless_path(){
 
         reckless_code += `
         turn->turn_to_target_absolute(0.7, ${rotation}_deg);
-        
         while (!turn->is_completed()) {
             print_position();
-            pros::delay(20);
+            pros::delay(10);
         }
         
-        reckless->go(
-            RecklessPath().with_segment(
-            PilonsSegment(
-                std::make_shared<ConstantMotion>(0.7),
-                std::make_shared<PilonsCorrection>(4, 0.3_in),
-                std::make_shared<SimpleStop>(0.03_s, 0.15_s, 0.3),
-                { ${x_coord}_in, ${y_coord}_in, 0_deg },
-                0_in)
-            ));
+        reckless->go({
+            PilonsSegment::create(FAST, { ${x_coord}_in, ${y_coord}_in) }),
+        });  
         while(!reckless->is_completed()) {
             print_position;
-            pros::delay(20);
+            pros::delay(10);
         }
         `
 

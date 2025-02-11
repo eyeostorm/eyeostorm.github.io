@@ -47,8 +47,9 @@
 }
 
 .paths-container, .events-container, .angle-container {
+    position: relative;
+
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     padding: 14px 0;
@@ -62,6 +63,9 @@
 .paths-container, .events-container {
     justify-content: space-between;
     position:relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
 }
 .angle-container {
     justify-content: center;
