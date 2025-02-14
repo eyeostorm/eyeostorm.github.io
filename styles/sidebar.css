@@ -41,14 +41,8 @@
     gap: 10px;
     width: 100%;
 }
-
-.width88p{
-    width: 88%;
-}
-
 .paths-container, .events-container, .angle-container {
     position: relative;
-
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -59,12 +53,12 @@
     text-align: left;
     overflow-y: hidden;
     transition: all 0.25s ease-in-out;
+    width: 88%;
 }
 .paths-container, .events-container {
     justify-content: space-between;
     position:relative;
     display: flex;
-    width: 100%;
     align-items: center;
 }
 .angle-container {
@@ -76,9 +70,7 @@
     background-color: rgb(141, 141, 141);
 }
 .waypoints-text, .paths-text, .events-text {
-    display: inline;
     margin: 0 0 0 13px;
-    width: 130px;
 }
 .paths-arrow, .events-arrow {
     display: inline;
@@ -87,7 +79,6 @@
 }
 .paths-text-container, .events-text-container {
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: space-between;
 }

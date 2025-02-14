@@ -19,7 +19,7 @@ function copy() {
 document.getElementById("copy-code").addEventListener("click", copy);
 
 function reckless_path(){
-    let reckless_code = ""
+    let reckless_code = "reckless->go({\n"
 
     for (let i = 1; i < global_waypoints.length; i++) {
         let waypoint_at_i = global_waypoints[i]
@@ -40,26 +40,22 @@ function reckless_path(){
         console.log(reckless_code)
 
         reckless_code += `
-        turn->turn_to_target_absolute(0.7, ${rotation}_deg);
-        while (!turn->is_completed()) {
-            print_position();
-            pros::delay(10);
-        }
-        
-        reckless->go({
-            PilonsSegment::create(FAST, { ${x_coord}_in, ${y_coord}_in) }),
-        });  
-        while(!reckless->is_completed()) {
-            print_position;
-            pros::delay(10);
-        }
+            &RecklessTurnSegment(0.7, COAST_POWER, ${rotation}_deg, HARSH_COEFF, COAST_COEFF, BRAKE_TIME),
+            &PilonsSegment(MEDIUM, {${x_coord}_in, ${y_coord}_in}),
         `
 
 
         // let isNew = false
         // writeToConsole(rotation,printLocation[0],printLocation[1],isNew,i-1)
     }
-    reckless_code += "\n\n"
+    reckless_code += `
+    });
+    while (!reckless->is_completed())
+    {
+        print_position();
+        pros::delay(20);
+    }
+    `
     return reckless_code
 }
 

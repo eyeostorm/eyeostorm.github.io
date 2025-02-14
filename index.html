@@ -66,7 +66,6 @@
             <nav class="sidebar">
                 <div class="sidebar-dropdown-div">
                     <div class="options-container">
-                        <div class="width88p">
                             <div class="angle-container">
                                 <div class="angle-text-container">
                                     <label for="AngleZeroInput">
@@ -75,32 +74,30 @@
                                     <input id="AngleZeroInput" type="text" class="kanit" value="0">
                                 </div>
                             </div>
-                        </div>
-                        <div class="width88p">
+
                             <div class="events-container events-text-container" id="events-container">
-                                <div class="events-text-container">
                                     <p class="events-text">
                                         Events
                                     </p>
                                     <p class="events-arrow" id="events-arrow">
                                         ▲
                                     </p>
-                                </div>
                             </div>
-                        </div>
-                        <div class="width88p">
                             <div class="paths-container dropdown-button" id="paths-container">
-                                <div class="paths-text-container">
-                                    <p class="paths-text">
+                                    <p class="paths-text dropdown-button">
                                         Paths
                                     </p>
-                                    <p class="paths-arrow" id="paths-arrow">
+                                    <p class="paths-arrow dropdown-button" id="paths-arrow">
                                         ▲
                                     </p>
-                                </div>
-                                <div class="constraint-container" id="constraint-container"></div>
+                                    <div id="pathsDropdownContentContainer" class="dropdown-content dropdown-content-container hide">
+                                        <div class="dropdown-content dropdown-list">
+                                            <input id="PathInput" type="text" class="kanit" value="0">
+                                            <a id="autonMapChangeLink" href="#" class="dropdown-content dropdown-item">Autonomous Map</a>
+                                            <a id="skillsMapChangeLink" href="#" class="dropdown-content dropdown-item">Skills Map</a>
+                                        </div>
+                                    </div>
                             </div>
-                        </div>
                     </div>
                 </div>
 
