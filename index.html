@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="styles/sidebar.css">
         <link rel="stylesheet" href="styles/pathgen.css">
         <link rel="stylesheet" href="styles/debug.css">
-        <link rel="stylesheet" href="styles/sidebar_popup.css">
+        <link rel="stylesheet" href="styles/popup.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,9 +92,11 @@
                                     </p>
                                     <div id="pathsDropdownContentContainer" class="dropdown-content dropdown-content-container hide">
                                         <div class="dropdown-content dropdown-list">
-                                            <input id="PathInput" type="text" class="kanit" value="0">
-                                            <a id="autonMapChangeLink" href="#" class="dropdown-content dropdown-item">Autonomous Map</a>
-                                            <a id="skillsMapChangeLink" href="#" class="dropdown-content dropdown-item">Skills Map</a>
+                                            <label for="PathInput" class="dropdown-content kanit">
+                                                Path Chain
+                                            </label>
+                                            <input id="PathInput" type="text" class="kanit dropdown-content" value="">
+                                            <a id="ExamplePath" href="#" class="dropdown-content dropdown-item">example path</a>
                                         </div>
                                     </div>
                             </div>

@@ -34,9 +34,9 @@ function writeToConsole(turnDegrees, printX, printY, isNew, motionIndex) {
         // spanElement.textContent = "path.add_turn(MyTurn(" + Math.round(angleDegrees*100)/100 + "_deg));";
         // spanElement2.textContent = "path.add_straight(Straight({" + Math.round(translatedXInches*100)/100 + "_in, " + Math.round(translatedYInches*100)/100 + "_in, 0_deg" + "}, 0_s, MOTOR_SPEED::MID));";
         if (global_absolute_angle){
-            spanElement.textContent = "Rotate to " + Math.round(turnDegrees)
+            spanElement.textContent =  (motionIndex+1) + ") " + "Rotate to " + Math.round(turnDegrees)
         } else {
-            spanElement.textContent = "Rotate by " + Math.round(turnDegrees)
+            spanElement.textContent = (motionIndex+1) + ") " + "Rotate by " + Math.round(turnDegrees)
         }
         spanElement2.textContent = "Move to [ " + Math.round(printX) + ", " + Math.round(printY) + " ]"
         websiteConsole.appendChild(spanElement);
@@ -45,9 +45,9 @@ function writeToConsole(turnDegrees, printX, printY, isNew, motionIndex) {
         websiteConsole.scrollTop = websiteConsole.scrollHeight
     } else {
         if (global_absolute_angle){
-            websiteConsoleOutputs[motionIndex][0].textContent = "Rotate to " + Math.round(turnDegrees)
+            websiteConsoleOutputs[motionIndex][0].textContent = (motionIndex+1) + ") " + "Rotate to " + Math.round(turnDegrees)
         } else {
-            websiteConsoleOutputs[motionIndex][0].textContent = "Rotate by " + Math.round(turnDegrees)
+            websiteConsoleOutputs[motionIndex][0].textContent = (motionIndex+1) + ") " + "Rotate by " + Math.round(turnDegrees)
         }
 
         websiteConsoleOutputs[motionIndex][1].textContent = "Move to [ " + Math.round(printX) + ", " + Math.round(printY) + " ]"

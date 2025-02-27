@@ -16,15 +16,17 @@ window.onclick = function(event) {
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function settingsPopFunction() {
-    document.getElementById("settingsDropdownContentContainer").classList.remove("hide");
-    document.getElementById("settingsDropdownContentContainer").classList.add("show");
+    let id = "settingsDropdownContentContainer"
+    document.getElementById(id).classList.remove("hide");
+    document.getElementById(id).classList.add("show");
     // debug
     // document.getElementById("settingsButton").style.backgroundColor = "pink"
 }
 
 function pathsPopFunction(){
-    document.getElementById("settingsDropdownContentContainer").classList.remove("hide");
-    document.getElementById("settingsDropdownContentContainer").classList.add("show");
+    let id = "pathsDropdownContentContainer"
+    document.getElementById(id).classList.remove("hide");
+    document.getElementById(id).classList.add("show");
 }
 
 

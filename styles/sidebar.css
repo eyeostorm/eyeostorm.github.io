@@ -22,7 +22,7 @@
     background-color: rgb(71, 0, 0);
     z-index: 1;
 
-    overflow-y: hidden;
+    overflow-y: visible;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -51,7 +51,7 @@
     border-radius: 30px;
     font-size: 26px;
     text-align: left;
-    overflow-y: hidden;
+    overflow-y: visible;
     transition: all 0.25s ease-in-out;
     width: 88%;
 }
@@ -85,7 +85,7 @@
 .path-container, .event-container {
     display: none;
     margin: 10px 13px 0 13px;
-    overflow-y: scroll;
+    overflow-y: visible;
     scrollbar-width: none;
     -ms-overflow-style: none;
     transition: all 0.5s ease-in-out;
