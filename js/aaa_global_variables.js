@@ -17,7 +17,9 @@ let global_starting_angle = 0
 
 let global_path_gen_image = document.getElementById("pathgenMap")
 
-let global_counterclockwise_posNeg = -1
+let global_counterclockwise_posNeg = -1;
 
-let global_imageHeight = 1
+let global_imageHeight = 1;
+
+let global_string_path = "";
 

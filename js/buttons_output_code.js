@@ -66,7 +66,8 @@ function save_paths(){
 
     for (let i = 0; i < global_waypoints.length; i++){
         let pos = getPosition(global_waypoints[i][0],i)
-        let relPos = relativePosUnitsXY(pos, image_top_left, global_starting_angle)
+
+        let relPos = relativePosUnitsXY(pos, image_top_left, 0)
         text += relPos[0].toFixed(3) + "," + relPos[1].toFixed(3) + ";"
     }
     navigator.clipboard.writeText(text);

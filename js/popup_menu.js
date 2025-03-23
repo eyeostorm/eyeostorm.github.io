@@ -1,6 +1,6 @@
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-    console.log(event.target.classList)
+    // console.log(event.target.classList)
     if (!event.target.classList.contains('dropdown-button') && !event.target.classList.contains('dropdown-content')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
         for (let i = 0; i < dropdowns.length; i++) {
@@ -24,12 +24,13 @@ function settingsPopFunction() {
 }
 
 function pathsPopFunction(){
-    let id = "pathsDropdownContentContainer"
-    document.getElementById(id).classList.remove("hide");
-    document.getElementById(id).classList.add("show");
+    let id_menu = "pathsDropdownContentContainer"
+    let id_button = "paths-container"
+    document.getElementById(id_menu).classList.remove("hide");
+    document.getElementById(id_menu).classList.add("show");
+    // document.getElementById(id_button).classList.remove("sidebar-dropdown-closed");
+    // document.getElementById(id_button).classList.add("sidebar-dropdown-open");
 }
-
-
 
 
 

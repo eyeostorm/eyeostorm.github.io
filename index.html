@@ -19,16 +19,17 @@
 
         <script defer src="js/aaa_global_variables.js"></script>
         <script defer src="js/waypoints.js"></script>
-        <script defer src="js/console_buttons.js"></script>
+        <script defer src="js/buttons_console_start.js"></script>
         <script defer src="js/console_text.js"></script>
         <script defer src="js/path_lines.js"></script>
         <script defer src="js/calculate_rotation.js"></script>
-        <script defer src="js/starting_angle.js"></script>
+        <script defer src="js/input_value.js"></script>
         <script defer src="js/relativeXYCoordinates.js"></script>
         <script defer src="js/window_resize.js"></script>
-        <script defer src="js/output_reckless_code.js"></script>
+        <script defer src="js/buttons_output_code.js"></script>
         <script defer src="js/popup_menu.js"></script>
         <script defer src="js/changeMaps.js"></script>
+        <script defer src="js/path_upload.js"></script>
 
         <script defer src="js/debug_functions.js"></script>
     </head>
@@ -66,7 +67,7 @@
             <nav class="sidebar">
                 <div class="sidebar-dropdown-div">
                     <div class="options-container">
-                            <div class="angle-container">
+                            <div class="angle-container sidebar-dropdown-closed">
                                 <div class="angle-text-container">
                                     <label for="AngleZeroInput">
                                         Angle θ<sub>0</sub> =
@@ -75,7 +76,7 @@
                                 </div>
                             </div>
 
-                            <div class="events-container events-text-container" id="events-container">
+                            <div class="events-container events-text-container sidebar-dropdown-closed" id="events-container">
                                     <p class="events-text">
                                         Events
                                     </p>
@@ -83,22 +84,22 @@
                                         ▲
                                     </p>
                             </div>
-                            <div class="paths-container dropdown-button" id="paths-container">
+                            <div id="paths-container" class="paths-container dropdown-button sidebar-dropdown-closed">
                                     <p class="paths-text dropdown-button">
                                         Paths
                                     </p>
                                     <p class="paths-arrow dropdown-button" id="paths-arrow">
                                         ▲
                                     </p>
-                                    <div id="pathsDropdownContentContainer" class="dropdown-content dropdown-content-container hide">
-                                        <div class="dropdown-content dropdown-list">
-                                            <label for="PathInput" class="dropdown-content kanit">
-                                                Path Chain
-                                            </label>
-                                            <input id="PathInput" type="text" class="kanit dropdown-content" value="">
-                                            <a id="ExamplePath" href="#" class="dropdown-content dropdown-item">example path</a>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div id="pathsDropdownContentContainer" class="dropdown-content dropdown-content-container hide kanit">
+                                <div class="dropdown-content dropdown-list">
+                                    <label for="PathInput" class="dropdown-content kanit center">
+                                        Path Chain
+                                    </label>
+                                    <input id="PathInput" type="text" class="kanit dropdown-content center" value="">
+                                    <a id="ExamplePath" href="#" class="dropdown-content dropdown-item">example path</a>
+                                </div>
                             </div>
                     </div>
                 </div>

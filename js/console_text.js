@@ -13,6 +13,7 @@ function startConsole() {
     
     websiteConsole.appendChild(spanElement);
     websiteConsole.style.scrollbarWidth = "initial";
+    updateConsoleFull();
 }
 
 function clearConsole() {
@@ -57,6 +58,7 @@ function writeToConsole(turnDegrees, printX, printY, isNew, motionIndex) {
 }
 
 function updateConsoleFull(){
+
     for (let i = 1; i < global_waypoints.length; i++){
         let waypoint_at_i = global_waypoints[i]
         let oldLocation = getPosition(global_waypoints[i-1],i-1)
