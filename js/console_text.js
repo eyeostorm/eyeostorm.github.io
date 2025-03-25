@@ -55,6 +55,8 @@ function writeToConsole(turnDegrees, printX, printY, isNew, motionIndex) {
         // websiteConsoleOutputs[line1Index][0].textContent = "path.add_turn(MyTurn(" + Math.round(angleDegrees*100)/100 + "_deg));";
         // websiteConsoleOutputs[line1Index][1].textContent = "path.add_straight(Straight({" + Math.round(translatedXInches*100)/100 + "_in, " + Math.round(translatedYInches*100)/100 + "_in, 0_deg" + "}, 0_s, MOTOR_SPEED::MID));";
     }
+
+    updateCookieFull();
 }
 
 function updateConsoleFull(){
@@ -70,5 +72,20 @@ function updateConsoleFull(){
         let isNew = false
         let rotation = rotate(oldLocation, oldDirection, destination, global_absolute_angle)
         writeToConsole(rotation,printLocation[0],printLocation[1],isNew,i-1)
+    }
+
+    updateCookieFull();
+}
+
+function updateCookieFull(){
+    global_string_path = -(global_starting_angle * 180 / Math.PI).toFixed(2) + "$"
+    let bounding_box = global_path_gen_image.getBoundingClientRect()
+    let image_top_left = [bounding_box.left, bounding_box.top]
+
+    for (let i = 0; i < global_waypoints.length; i++){
+        let pos = getPosition(global_waypoints[i][0],i)
+
+        let relPos = relativePosUnitsXY(pos, image_top_left, 0)
+        global_string_path += relPos[0].toFixed(3) + "," + relPos[1].toFixed(3) + ";"
     }
 }
