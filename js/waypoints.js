@@ -152,15 +152,15 @@ function waypointAt(x, y){
 
     // creates the visible part of the waypoint object
     waypointStyler.className = "robot-dragger";
-    waypointStyler.textContent = global_waypoints.length
+    waypointStyler.textContent = global_waypoints.length;
 
     waypointBase.appendChild(waypointStyler);
 
     //add dragging effects to waypoint and draw a line to the waypoint
     dragWaypoint(waypointBase);
 
-    let direction = calculateDirection([x+25, y+25], getPosition(global_waypoints[global_waypoints.length-1][0]));
-    global_waypoints.push([waypointBase, x+25, y+25, direction]);
+    let direction = calculateDirection([x+global_wayPadding, y+global_wayPadding], getPosition(global_waypoints[global_waypoints.length-1][0]));
+    global_waypoints.push([waypointBase, x+global_wayPadding, y+global_wayPadding, direction]);
 
     //import from path_lines.js
     drawLine(waypointBase);
@@ -174,6 +174,16 @@ function waypointAt(x, y){
 
     let rotation = rotate(pos,getDirection(global_waypoints[oldIndex][0], oldIndex), destination, global_absolute_angle);
     writeToConsole(rotation,printLocation[0],printLocation[1],true,global_waypoints.length-2);
+}
+
+function waypointAt_Inches(x_in,y_in){
+    let bounding_box = global_path_gen_image.getBoundingClientRect()
+    let image_height_ratio = bounding_box.height / 144;
+    let image_width_ratio = bounding_box.width / 144;
+
+    let x_px = bounding_box.left + x_in * image_width_ratio;
+    let y_px = bounding_box.top + y_in * image_width_ratio;
+    waypointAt(x_px,y_px);
 }
 
 // specifically to prevent a double click selection on our pathgen-container element

@@ -2,9 +2,11 @@
     display: flex;
     /* align-items: center; */
     justify-content: center;
-    margin: 100px 0px 0px 230px;
-    padding: 20px 0px 0px 0px;;
-    min-width: calc(100dvh - 230px + 100px + 30px);
+    margin: 100px 0px 0px min(30dvw, 35dvh);
+    padding: 20px 0px 0px 6px;;
+    /*width: calc(100dvw - 30dvw - 6px);*/
+    /*max-width: calc(100dvw);*/
+    /*max-width: calc(100dvw);*/
 }
 .pathgen-image {
     /* position:absolute; */
@@ -14,6 +16,8 @@
     width: calc(100dvh - 100px - 20px - 20px);
     /* heading is 100px and sidebar is 230px*/
     display: inline;
+    max-width: 68dvw;
+    max-height: 68dvw;
 }
 
 .robot-dragger-base {

@@ -1,14 +1,13 @@
 function input_handler_AngleZeroInput (e) {
-    if (e.target === document.getElementById("AngleZeroInput")) {
-        let angle = e.target.value;
-        if (!isNaN(angle) && !isNaN(parseFloat(angle))) {
-            global_starting_angle = angle / 180 * Math.PI * global_counterclockwise_posNeg;
-            updateConsoleFull();
-        } else {
-            global_starting_angle = 0;
-            updateConsoleFull();
-        }
+    let angle = e.target.value;
+    if (!isNaN(angle) && !isNaN(parseFloat(angle))) {
+        global_starting_angle = angle / 180 * Math.PI * global_counterclockwise_posNeg;
+        e.target.value = angle;
+    } else {
+        global_starting_angle = 0;
+        e.target.value = 0;
     }
+    updateConsoleFull();
 }
 
 function input_handler_PathInput (e) {

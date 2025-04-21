@@ -10,8 +10,10 @@
 
     /* width: 21%;
     height: 90%; */
-    width: 230px;
-    min-width: 35dvh;
+    /*width: 230px;*/
+    width: 35dvh;
+    /*min-width: 230px;*/
+    max-width: 30dvw;
 
     border-left-width: 0px;
     border-top-width: 0px;
@@ -53,6 +55,7 @@
     overflow-y: visible;
     transition: all 0.25s ease-in-out;
     width: 88%;
+    background-color: rgb(30, 10, 10);
 }
 .paths-container, .events-container {
     justify-content: space-between;
@@ -96,6 +99,7 @@
 }
 #AngleZeroInput{
     width: calc(100% - 150px);
+    min-width: 40px;
     align-self: center;
     font-size: 1em;
     /*margin: 0px calc(2em);*/

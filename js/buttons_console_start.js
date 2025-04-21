@@ -18,11 +18,10 @@ function start() {
         var startWaypoint = document.getElementById("robot-dragger-base");
         var startrect = startWaypoint.getBoundingClientRect();
 
-        let initialX = (startrect.left + global_wayPadding*2)
-        let initialY = (startrect.top + global_wayPadding*2)
+        let initialX = (startrect.left + global_wayPadding * 2)
+        let initialY = (startrect.top + global_wayPadding * 2)
 
         // start the global waypoint to the position of the waypoint and the initial direction
-        // DEBUG, CHANGE INITIAL DIRECTION
         global_waypoints = [[startWaypoint, initialX, initialY, 0]]
 
         // Import function from console_text.js
@@ -30,10 +29,12 @@ function start() {
 
         global_beginClicked = true;
     }
+
+    waypointAt_Inches(144,144)
 }
 
 
 document.getElementById("restart-code").addEventListener("click", restart);
-document.getElementById("start-code").addEventListener("click", start);
+// document.getElementById("start-code").addEventListener("click", start);
 
 document.addEventListener('DOMContentLoaded', start)
