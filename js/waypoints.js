@@ -193,11 +193,14 @@ function waypointUpdate(x_px,y_px, waypoint, index=null){
 
     global_waypoints[index][1] = x_px;
     global_waypoints[index][2] = y_px;
-    console.log(global_wayPadding[index])
-    global_wayPadding[index][3] = calculateDirectionWaypoint(waypoint,index);
+    global_waypoints[index][3] = calculateDirectionWaypoint(waypoint,index);
 
-    waypoint.style.top = (x_px-global_wayPadding) + "px";
-    waypoint.style.left = (y_px-global_wayPadding) + "px";
+
+    console.log(global_path_gen_image.getBoundingClientRect().left, x_px)
+    console.log(global_path_gen_image.getBoundingClientRect().top, y_px)
+
+    waypoint.style.left = (x_px) + "px";
+    waypoint.style.top = (y_px) + "px";
 
     let lineStartX = waypoint.offsetLeft + global_wayPadding;
     let lineStartY = waypoint.offsetTop + global_wayPadding;
@@ -214,8 +217,8 @@ function waypointUpdate_Inches(x_in,y_in, waypoint, index=null){
     let image_height_ratio = bounding_box.height / 144;
     let image_width_ratio = bounding_box.width / 144;
 
-    let x_px = bounding_box.left + x_in * image_width_ratio;
-    let y_px = bounding_box.top + y_in * image_width_ratio;
+    let x_px = bounding_box.left + x_in * image_width_ratio - global_wayPadding;
+    let y_px = bounding_box.top + y_in * image_width_ratio - global_wayPadding;
 
     waypointUpdate(x_px,y_px, waypoint,index=null)
 }

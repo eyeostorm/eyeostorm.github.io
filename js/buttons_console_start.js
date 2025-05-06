@@ -18,8 +18,8 @@ function start() {
         var startWaypoint = document.getElementById("robot-dragger-base");
         var startrect = startWaypoint.getBoundingClientRect();
 
-        let initialX = (startrect.left + global_wayPadding * 1)
-        let initialY = (startrect.top + global_wayPadding * 1)
+        let initialX = (startrect.left + global_wayPadding * 0)
+        let initialY = (startrect.top + global_wayPadding * 0)
 
         // start the global waypoint to the position of the waypoint and the initial direction
         global_waypoints = [[startWaypoint, initialX, initialY, 0]]

@@ -53,6 +53,12 @@
 .split-grid-item{
     width: 33px;
 }
+#InitPosCoord_X{
+    width: 25px;
+}
+#InitPosCoord_Y{
+    width: 25px;
+}
 
 
 
