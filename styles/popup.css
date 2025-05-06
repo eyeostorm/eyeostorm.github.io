@@ -41,6 +41,18 @@
 .center{
     justify-self: center;
 }
+.split-grid{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    /*grid-template-rows: [first] 40px [end];*/
+    /*grid-template-columns: [first] 45% [line2] 20px [line3] 45% [end];*/
+    /*width: 20px;*/
+}
+.split-grid-item{
+    width: 33px;
+}
 
 
 

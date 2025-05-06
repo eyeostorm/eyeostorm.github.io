@@ -69,8 +69,8 @@ function dragWaypoint(waypoint) {
         //Update the information about the waypoints in "waypoints" list
         let i = getIndex(waypoint)
         if (i >= 0){
-            global_waypoints[i][1] = global_waypoints[i][1] + moveX
-            global_waypoints[i][2] = global_waypoints[i][2] + moveY
+            global_waypoints[i][1] = global_waypoints[i][1] + moveX;
+            global_waypoints[i][2] = global_waypoints[i][2] + moveY;
             global_waypoints[i][3] = calculateDirectionWaypoint(waypoint, i);
 
             //Update the facing direction of next waypoint in the index
@@ -79,13 +79,13 @@ function dragWaypoint(waypoint) {
                 global_waypoints[i+1][3] = calculateDirectionWaypoint(waypointAfter, i+1)
             }
 
-            let lineStartX = waypoint.offsetLeft + 25 + moveX;
-            let lineStartY = waypoint.offsetTop + 25 + moveY;
+            let lineStartX = waypoint.offsetLeft + global_wayPadding;
+            let lineStartY = waypoint.offsetTop + global_wayPadding;
             // import from path_lines.js
             moveLineEndpoints(i, lineStartX, lineStartY)
 
             // import from console_text.js
-            updateConsoleFull()
+            updateConsoleFull();
         }
     }
 }
@@ -159,21 +159,21 @@ function waypointAt(x, y){
     //add dragging effects to waypoint and draw a line to the waypoint
     dragWaypoint(waypointBase);
 
-    let direction = calculateDirection([x+global_wayPadding, y+global_wayPadding], getPosition(global_waypoints[global_waypoints.length-1][0]));
-    global_waypoints.push([waypointBase, x+global_wayPadding, y+global_wayPadding, direction]);
-
-    //import from path_lines.js
-    drawLine(waypointBase);
+    let direction = calculateDirection([x, y], getPosition(global_waypoints[global_waypoints.length-1][0]));
+    global_waypoints.push([waypointBase, x, y, direction]);
 
     // write a new line to the website console
     // import from calculate_rotation.js and console_text.js
-    let destination = [x+25, y+25];
+    let destination = [x+global_wayPadding, y+global_wayPadding];
     let printLocation = relativePosUnitsXY(destination, getPosition(global_waypoints[0][0], 0), global_starting_angle);
     let oldIndex = global_waypoints.length-2;
     let pos = getPosition(global_waypoints[oldIndex][0], oldIndex)
 
     let rotation = rotate(pos,getDirection(global_waypoints[oldIndex][0], oldIndex), destination, global_absolute_angle);
     writeToConsole(rotation,printLocation[0],printLocation[1],true,global_waypoints.length-2);
+
+    //import from path_lines.js
+    drawLine(waypointBase);
 }
 
 function waypointAt_Inches(x_in,y_in){
@@ -184,6 +184,45 @@ function waypointAt_Inches(x_in,y_in){
     let x_px = bounding_box.left + x_in * image_width_ratio;
     let y_px = bounding_box.top + y_in * image_width_ratio;
     waypointAt(x_px,y_px);
+}
+
+function waypointUpdate(x_px,y_px, waypoint, index=null){
+    if (!index && index !== 0){
+        index = getIndex(waypoint)
+    }
+
+    global_waypoints[index][1] = x_px;
+    global_waypoints[index][2] = y_px;
+    console.log(global_wayPadding[index])
+    global_wayPadding[index][3] = calculateDirectionWaypoint(waypoint,index);
+
+    waypoint.style.top = (x_px-global_wayPadding) + "px";
+    waypoint.style.left = (y_px-global_wayPadding) + "px";
+
+    let lineStartX = waypoint.offsetLeft + global_wayPadding;
+    let lineStartY = waypoint.offsetTop + global_wayPadding;
+    // import from path_lines.js
+    moveLineEndpoints(index, lineStartX, lineStartY)
+
+    // import from console_text.js
+    updateConsoleFull();
+}
+
+
+function waypointUpdate_Inches(x_in,y_in, waypoint, index=null){
+    let bounding_box = global_path_gen_image.getBoundingClientRect()
+    let image_height_ratio = bounding_box.height / 144;
+    let image_width_ratio = bounding_box.width / 144;
+
+    let x_px = bounding_box.left + x_in * image_width_ratio;
+    let y_px = bounding_box.top + y_in * image_width_ratio;
+
+    waypointUpdate(x_px,y_px, waypoint,index=null)
+}
+
+
+function waypointDelete(){
+
 }
 
 // specifically to prevent a double click selection on our pathgen-container element

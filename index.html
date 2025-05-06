@@ -64,13 +64,13 @@
                     <img class="header-text-image" src="images/aggieroboticslogob.png" alt="">
                 </div>
             </header>
-            <nav class="sidebar">
+            <nav id="sidebar" class="sidebar">
                 <div class="sidebar-dropdown-div">
                     <div class="options-container">
                             <div class="angle-container sidebar-dropdown-closed">
                                 <div class="angle-text-container">
                                     <label for="AngleZeroInput">
-                                        Angle θ<sub>0</sub> =
+                                        <span id="labelAngleZeroInputSPAN">Angle </span>θ<sub>0</sub> =
                                     </label>
                                     <input id="AngleZeroInput" type="text" class="kanit" value="0">
                                 </div>
@@ -98,7 +98,24 @@
                                         Path Chain
                                     </label>
                                     <input id="PathInput" type="text" class="kanit dropdown-content center" value="">
-                                    <a id="ExamplePath" href="#" class="dropdown-content dropdown-item">example path</a>
+<!--                                    <a id="ExamplePath" href="#" class="dropdown-content dropdown-item">example path</a>-->
+                                    <span class="dropdown-content center">
+                                        Initial Position
+                                    </span>
+                                    <div class="dropdown-content split-grid center">
+                                        <div>
+                                            <label for="InitPosCoord_X" class="dropdown-content">
+                                                x
+                                            </label>
+                                            <input id="InitPosCoord_X" type="number" class="kanit dropdown-content center split-grid-item black-text" value=""></input>
+                                        </div>
+                                        <div>
+                                            <label for="InitPosCoord_Y" class="dropdown-content">
+                                                y
+                                            </label>
+                                            <input id="InitPosCoord_Y" type="number" class="kanit dropdown-content center split-grid-item black-text" value=""></input>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     </div>

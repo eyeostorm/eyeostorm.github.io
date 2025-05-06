@@ -9,7 +9,7 @@ function startConsole() {
     let spanElement = document.createElement("span");
     spanElement.style.display = "block";
 
-    spanElement.textContent = "[ 0, 0 ] is the starting location of block 0; \r Clockwise Rotation is positive due to the PROS libraray \r Happy Hunting!! \r\r ------- \r\r";
+    spanElement.textContent = "[ 0, 0 ] is the starting location of block 0; \r Clockwise Rotation is positive due to the PROS library \r Happy Hunting!! \r\r ------- \r\r";
     
     websiteConsole.appendChild(spanElement);
     websiteConsole.style.scrollbarWidth = "initial";
@@ -59,33 +59,21 @@ function writeToConsole(turnDegrees, printX, printY, isNew, motionIndex) {
     updateCookieFull();
 }
 
-function updateConsoleFull(){
+function updateConsoleFull() {
 
-    for (let i = 1; i < global_waypoints.length; i++){
+    for (let i = 1; i < global_waypoints.length; i++) {
         let waypoint_at_i = global_waypoints[i]
-        let oldLocation = getPosition(global_waypoints[i-1],i-1)
-        let oldDirection = getDirection(global_waypoints[i-1], i-1)
-        let destination = getPosition(waypoint_at_i,i)
+        let oldLocation = getPosition(global_waypoints[i - 1], i - 1)
+        let oldDirection = getDirection(global_waypoints[i - 1], i - 1)
+        let destination = getPosition(waypoint_at_i, i)
 
         let printLocation = relativePosUnitsXY(destination, getPosition(global_waypoints[0][0], 0), global_starting_angle)
 
         let isNew = false
         let rotation = rotate(oldLocation, oldDirection, destination, global_absolute_angle)
-        writeToConsole(rotation,printLocation[0],printLocation[1],isNew,i-1)
+        writeToConsole(rotation, printLocation[0], printLocation[1], isNew, i - 1)
     }
 
+    // import from path_upload.js
     updateCookieFull();
-}
-
-function updateCookieFull(){
-    global_string_path = -(global_starting_angle * 180 / Math.PI).toFixed(2) + "$"
-    let bounding_box = global_path_gen_image.getBoundingClientRect()
-    let image_top_left = [bounding_box.left, bounding_box.top]
-
-    for (let i = 0; i < global_waypoints.length; i++){
-        let pos = getPosition(global_waypoints[i][0],i)
-
-        let relPos = relativePosUnitsXY(pos, image_top_left, 0)
-        global_string_path += relPos[0].toFixed(3) + "," + relPos[1].toFixed(3) + ";"
-    }
 }
