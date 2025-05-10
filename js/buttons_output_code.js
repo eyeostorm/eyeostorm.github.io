@@ -19,7 +19,7 @@ function copy() {
 document.getElementById("copy-code").addEventListener("click", copy);
 
 function reckless_path(){
-    let reckless_code = "reckless->go(RecklessPath()\n"
+    let reckless_code = "odom_runner = std::make_shared\<rev::AsyncRunner\>(odom);\n\n"
 
     for (let i = 1; i < global_waypoints.length; i++) {
         let waypoint_at_i = global_waypoints[i]
@@ -40,21 +40,26 @@ function reckless_path(){
         // console.log(reckless_code)
 
         reckless_code += `
+        reckless->go(RecklessPath()\n
             // \<------- movement segment #${i} -------\> 
-            .with_segment(
+            .with_segment(PilonsSegment(
                  std::make_shared\<ConstantMotion\>(FAST_POWER),
                  std::make_shared\<PilonsCorrection\>(FAST_CORRECTION_COEFF, FAST_CORRECTION_DIST),
                  std::make_shared\<SimpleStop\>(FAST_HARSH_THRESHOLD, FAST_COAST_THRESHOLD, FAST_COAST_POWER),
                  {${x_coord}_in, ${y_coord}_in, 0_deg}, 0_in) 
-            ));
-            
+            )
+        );
+        run_until(5000);
+        
+        reckless->go(RecklessPath()\n
+            // \<------- turn segment #${i} -------\> 
             .with_segment(
                 RecklessTurnSegment(0.7, 0.3, 
                 ${rotation}_deg, HARSH_COEFF, COAST_COEFF, 0.1_s)
-            ));
-            run_until(1000);
-            
-            
+            )
+        );
+        run_until(5000);
+        
         `
 
 
@@ -62,7 +67,6 @@ function reckless_path(){
         // writeToConsole(rotation,printLocation[0],printLocation[1],isNew,i-1)
     }
     reckless_code += `
-    });
     while (!reckless->is_completed())
     {
         print_position();
