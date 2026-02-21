@@ -158,19 +158,25 @@ function waypointAt(x, y){
 
     //add dragging effects to waypoint and draw a line to the waypoint
     dragWaypoint(waypointBase);
+    let direction;
+    if (global_waypoints.length > 0) {direction = calculateDirection([x, y], getPosition(global_waypoints[global_waypoints.length - 1][0]));}
+    else {direction = global_starting_angle;}
 
-    let direction = calculateDirection([x, y], getPosition(global_waypoints[global_waypoints.length-1][0]));
     global_waypoints.push([waypointBase, x, y, direction]);
 
     // write a new line to the website console
     // import from calculate_rotation.js and console_text.js
     let destination = [x+global_wayPadding, y+global_wayPadding];
     let printLocation = relativePosUnitsXY(destination, getPosition(global_waypoints[0][0], 0), global_starting_angle);
-    let oldIndex = global_waypoints.length-2;
-    let pos = getPosition(global_waypoints[oldIndex][0], oldIndex)
-
-    let rotation = rotate(pos,getDirection(global_waypoints[oldIndex][0], oldIndex), destination, global_absolute_angle);
-    writeToConsole(rotation,printLocation[0],printLocation[1],true,global_waypoints.length-2);
+    if (global_waypoints.length-1 > 0) {
+        let oldIndex = global_waypoints.length - 2;
+        let pos = getPosition(global_waypoints[oldIndex][0], oldIndex)
+        let rotation = rotate(pos, getDirection(global_waypoints[oldIndex][0], oldIndex), destination, global_absolute_angle);
+        writeToConsole(rotation, printLocation[0], printLocation[1], true, global_waypoints.length - 2);
+    } else {
+        //import from
+        updateCookieFull();
+    }
 
     //import from path_lines.js
     drawLine(waypointBase);
@@ -235,10 +241,9 @@ document.getElementById("pathgen-container").addEventListener('mousedown', funct
     }
     }, false)
 
-dragWaypoint(document.getElementById("robot-dragger-base"));
 document.getElementById("pathgen-container").addEventListener("dblclick", function(e) {
     // import from console_buttons.js
-    if (global_beginClicked) {
+    if (global_initialize) {
         let x = e.clientX;
         let y = e.clientY;
         waypointAt(x, y);

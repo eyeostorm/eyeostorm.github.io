@@ -1,21 +1,3 @@
-// function copy() {
-//     let range = document.createRange()
-//     range.selectNode(document.getElementById('console'));
-//     window.getSelection().removeAllRanges();
-//     window.getSelection().addRange(range);
-//     // HTML5 has no real alternative to execCommand('copy')?
-//     document.execCommand('copy');
-//     alert("Copied the text");
-//     window.getSelection().removeAllRanges();
-// }
-
-function copy() {
-    let text = reckless_path()
-    navigator.clipboard.writeText(text);
-    alert("Copied Revilib code to your clipboard! Paste into a PROS coding space");
-
-}
-
 document.getElementById("copy-code").addEventListener("click", copy);
 
 function reckless_path(){
@@ -77,19 +59,25 @@ function reckless_path(){
 }
 
 function save_paths(){
-    // let text = -(global_starting_angle * 180 / Math.PI).toFixed(2) + "$"
-    // let bounding_box = global_path_gen_image.getBoundingClientRect()
-    // let image_top_left = [bounding_box.left, bounding_box.top]
-    //
-    // for (let i = 0; i < global_waypoints.length; i++){
-    //     let pos = getPosition(global_waypoints[i][0],i)
-    //
-    //     let relPos = relativePosUnitsXY(pos, image_top_left, 0)
-    //     text += relPos[0].toFixed(3) + "," + relPos[1].toFixed(3) + ";"
-    // }
     navigator.clipboard.writeText(global_string_path);
     alert("Copied Path to your clipboard. Paste into a safe location");
 }
 
+function copy() {
+    let text = reckless_path()
+    navigator.clipboard.writeText(text);
+    alert("Copied Revilib code to your clipboard! Paste into a PROS coding space");
+
+}
+function restart() {
+    // Import function from console_text.js
+    clearConsole();
+
+    // Import function from waypoints.js
+    resetLines();
+}
+
 document.getElementById("copy-code").addEventListener("click", copy);
-document.getElementById("save-path").addEventListener("click", save_paths)
+document.getElementById("save-path").addEventListener("click", save_paths);
+document.getElementById("restart-code").addEventListener("click", restart);
+// document.getElementById("start-code").addEventListener("click", start);
