@@ -1,0 +1,15 @@
+.pink-debug{
+    background-color: pink;
+}
+
+.pink-debug:hover{
+    background-color: blueviolet;
+}
+
+.green-debug{
+    background-color: green;
+}
+
+.green-debug:hover{
+    background-color: darkgreen;
+}

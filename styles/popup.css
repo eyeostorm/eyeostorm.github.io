@@ -1,0 +1,73 @@
+.dropdown-button{
+    position: relative;
+}
+
+.dropdown-content-container{
+    position: absolute;
+    z-index: 2;
+    border-radius: 2px;
+    border: solid 4px black;
+    background-color: rgb(50,50,50);
+    /*box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);*/
+}
+.dropdown-item{
+    padding: 10px 5px;
+    color: rgb(182,65,182);
+    transition: all 0.1s ease-in-out;
+    border-color: black;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    font-size: 1rem;
+}
+.dropdown-item:hover{
+    color: rgb(210,100,210)
+}
+.dropdown-list{
+    display: grid;
+    min-width: 120px;
+}
+/*.sidebar-dropdown-open{border-radius: 30px 30px 0 0;}*/
+/*.sidebar-dropdown-closed{border-radius: 30px}*/
+
+#pathsDropdownContentContainer{
+    top: 272px;
+    /*left: 32px;*/
+}
+#PathInput{
+    height: 1.5rem;
+    width: 90%;
+    color: black;
+}
+.center{
+    justify-self: center;
+}
+.split-grid{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    /*grid-template-rows: [first] 40px [end];*/
+    /*grid-template-columns: [first] 45% [line2] 20px [line3] 45% [end];*/
+    /*width: 20px;*/
+}
+.split-grid-item{
+    width: 33px;
+}
+#InitPosCoord_X{
+    width: 25px;
+}
+#InitPosCoord_Y{
+    width: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
